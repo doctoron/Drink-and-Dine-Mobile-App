@@ -10,7 +10,7 @@ $(document).ready(function() {
     $('.slider').on("click", function () {
         console.log("I've been switched!")
         // toggle between default and recipe
-        if (toggle) {
+        if (toggle === !toggle) {
             $('#recipe-div').hide();
             $('#drink-div').show();
     
@@ -19,7 +19,7 @@ $(document).ready(function() {
             // make opposite of current boolean value
             !toggle;
     
-        } else if (!toggle) {
+        } else if (!toggle === toggle) {
             $('#recipe-div').show();
             $('#drink-div').hide();
     
@@ -27,7 +27,7 @@ $(document).ready(function() {
             $('#switch').prop('checked', true).change();
     
             // make opposite of what bool it currently is
-            !toggle;
+            !toggle === toggle;
         }
     
     });
@@ -67,93 +67,93 @@ $(document).ready(function() {
     
     // create row function that accepts 
     createRow = (name, ingredients) => {
-    
         // create new div
         let newDiv = $('<div>');
-    
+
         // append name of recipe to new div
         $(newDiv).append(name)
-    
+
         // loop through ingredients
         for (let i = 0; i < ingredients.length; i++) {
-    
+        
             // create new div
             let ingredientsDiv = $('<div>');
-    
+        
             // append ingredients to div
             $(ingredientsDiv).append(ingredients[i].text);
-    
+        
             // append ingredients div to main div
             $(newDiv).append(ingredientsDiv);
-    
             console.log(ingredients[i])
         }
     
         // append main div to html div
         $('#row-div').append(newDiv);
     }
-    //------------------------------------------------------------------------
-    // Drink Image:
-    // https://www.thecocktaildb.com/images/ingredients/ice-Medium.png (350x350 pixels)
-    // 
-    // Filter searches:
-    // queryURL by drink ingredient:
-    // var drinkIn;
-    // let queryURl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${drinkIngred}`
-    //------------------------------------------------------------------------
-    // queryURL non-alcoholic:
-    // var drinkNA;
-    // let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`
-    //------------------------------------------------------------------------
     // queryURL by drink name:
     $("#drink-submit-button").on("click", function () {
-    
+        
+        // Get user drink input from form
         let userInput = $('#drink-input').val().trim();
+        // Cocktail API with no ID/key required assignment with E6 template string for query
         let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
-    
+        
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function (response) {        
-            // console.log(response);
+        }).then(function (response) {     
+            // confirm whole object response       
+            console.log(response);
             // get specific object within whole response object
-            // get ingredients:
-    console.log(response.drinks[0].strIngredient1);
-    
-        // Extremely wet console.log test !!!
+            // get drink ingredients:
+            console.log(response.drinks[0].strIngredient1);
+
             // console.log(response.drinks[0].strIngredient2);
-            // console.log(response.drinks[0].strIngredient3);
-            // console.log(response.drinks[0].strIngredient4);
-            // console.log(response.drinks[0].strIngredient5);
             // console.log(response.drinks[0].strMeasure1);
-            // console.log(response.drinks[0].strMeasure2);
-            // console.log(response.drinks[0].strMeasure3);
-            // console.log(response.drinks[0].strMeasure4);
-            // console.log(response.drinks[0].strMeasure5);
-            // console.log(response.drinks[1].strIngredient1);
-            // console.log(response.drinks[1].strIngredient2);
-            // console.log(response.drinks[1].strIngredient3);
-            // console.log(response.drinks[1].strIngredient4);
-            // console.log(response.drinks[1].strIngredient5);
-            // console.log(response.drinks[1].strMeasure1);
-            // console.log(response.drinks[1].strMeasure2);
-            // console.log(response.drinks[1].strMeasure3);
-            // console.log(response.drinks[1].strMeasure4);
-            // console.log(response.drinks[1].strMeasure5);
-                
-        /* Will need a function to loop through the results and add 
-        results until there is a NULL entry */
-        for (let i = 0; i < response.drinks.length; i++) {
-            console.log(str.truncate,13(response.drinks[i]));
-            //console.log(`Ingredients: ${response.drinks[0].strIngredient1} ${response.drinks[0].strMeasure1}`);        
+            // console.log(response.drinks[0].strMeasure2);            // console.log(response.drinks[1].strMeasure5);
+            
+            /* Will need a function to loop through the results and add 
+            results until there is a NULL entry */
+            for (let i = 0; i < response.drinks[i].length-1; i++) {
+                console.log(`(Ingredients: ${response.drinks[0].strIngredient1} ${response.drinks[0].strMeasure1} 
+                    Directions: ${response.drinks[0].strInstructions}`);       
+                    
+                    createRow(`(Ingredients: ${response.drinks[i].strIngredient1} ${response.drinks[i].strMeasure1} Directions: ${response.drinks[i].strInstructions}`);
+
+                    // Create row function that accepts response data
+                    createRow = (drinkName, ingredients, instructions) => {
+
+                    // Append name of drink to new div
+                    $(newDiv).append(drinkName)
+                        
+                    // Loop through ingredients
+                    for (let i =0; i < ingredients.length; i++) {
+                            
+                            // Create new div
+                            let drinkIngred = $('<div>');
+                                                        
+                    // Append Ingredients div to main div
+                            $(newDiv).append(drinkIngred);
+                            console.log(drinkIngred[i]);
+                        }
+                    // Append main div to HTML div
+                        $('#row-div').append(newDiv);
+                    }}},
+                    
+        )},
+    )},
+)
         
-    //Need to shorten the ingredients response string;
-    
-    // console.log(str.truncate(13,response.drinks[0]strIngredient));        
-    //     createRow(response.drinks[i].str.slice(strIngredien.label, response.hits[i].recipe.ingredients);
-    
-            }
-    
-        });
-    });
-    })
+//------------------------------------------------------------------------
+// Drink Image:
+// https://www.thecocktaildb.com/images/ingredients/ice-Medium.png (350x350 pixels)
+// 
+// Filter searches:
+// queryURL by drink ingredient:
+// var drinkIn;
+// let queryURl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${drinkIngred}`
+//------------------------------------------------------------------------
+// queryURL non-alcoholic:
+// var drinkNA;
+// let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`
+//------------------------------------------------------------------------

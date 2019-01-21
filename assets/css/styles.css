@@ -1,0 +1,39 @@
+body {
+    background-image: url("https://www.eastcoastrustic.com/wp-content/uploads/2017/06/barn-wood-grey-and-brown.jpg"); background-size: 100%;
+}
+
+h1 {
+    font-size: 100px;
+}
+
+.containerhead {
+    margin-top: 30px;
+    padding-right: 50px;
+    padding-left:50px;
+}
+
+
+header {
+    background: rgba(0,0,0,0.5);
+    height: 200px;
+    width: 200px;
+    align-content: center;
+    text-align: center;
+    border-radius: 300px;
+    padding-top: 50px;
+    position: relative;
+    color: rgb(145, 145, 145);
+    font-family: 'Lobster', cursive;
+} 
+
+
+.container1 #drink-div {
+    
+    height: 40px;
+    width:40px;
+}
+
+#recipe-div {
+    position: relative;
+}
+

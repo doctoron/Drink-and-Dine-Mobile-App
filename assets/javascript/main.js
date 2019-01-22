@@ -1,112 +1,153 @@
+$(document).ready(function () {
 
-// var that switches between drinks and food div
-let toggle = true;
+    let toggle = true;
 
-// hide drink div first
-$('#drink-div').hide();
+    $('#recipe-div').hide();
 
-// click for toggling drink/food div
-$('#switch').on("click", function () {
+    $('#switch').on('click', function () {
 
-    // toggle between default and recipe
-    if (toggle) {
-        $('#recipe-div').hide();
-        $('#drink-div').show();
+        if (toggle) {
+            $('#recipe-div').show();
+            $('#drink-div').hide();
 
-        // check the box
-        $('#switch').prop('checked', false).change();
+            $('#switch').prop('checked', false).change()
 
-        // make opposite of what bool it currently is
-        !toggle;
+            toggle = !toggle;
 
-    } else if (!toggle) {
-        $('#recipe-div').show();
-        $('#drink-div').hide();
+        } else if (!toggle) {
+            $('#drink-div').show();
+            $('#recipe-div').hide();
 
-        // check the box
-        $('#switch').prop('checked', true).change();
+            $('#switch').prop('checked', true).change();
 
-        // make opposite of what bool it currently is
-        !toggle;
-    }
+            toggle = !toggle;
+        }
 
-});
+    });
 
 
-// onclick for recipe submit 
-$("#recipe-submit-button").on("click", function () {
+    /*$('#recipe-submit-button').on('click', function () {
 
-    // get user input
-    let userInput = $('#recipe-input').val().trim();
+        let userInput = $('#recipe-input').val().trim();
 
-    // API key and ID
-    let YOUR_APP_ID = '13d7fa80';
-    let YOUR_APP_KEY = '184c76885e08b40ef3ce55652516e374';
+        let YOUR_APP_ID = '13d7fa80';
+        let YOUR_APP_KEY = '184c76885e08b40ef3ce55652516e374';
 
-    // ES6 Template string
-    let queryURL = `https://api.edamam.com/search?q=${userInput}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`
+        let queryURL = `https://api.edamam.com/search?q=${userInput}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
+        $.ajax({
+            url: queryURL,
+            method: 'GET'
+        }).then(function (response) {
 
-        // get whole response object
-        console.log(response);
+            // get whole response object
+            // console.log(response);
 
-        // get specific object within whole response object
-        console.log(response.hits[0].recipe.source);
+            // get specific object within whole response object
+            // console.log(response.hits[0].recipe.source);
 
-        // loop through recipes and put them into an object of a function
-        for (let i = 0; i < response.hits.length; i++) {
-            createRow(response.hits[i].recipe.label, response.hits[i].recipe.ingredients);
+            // loop through recipes and put them into an object of a function
+            for (let i = 0; i < response.hits.length; i++) {
+                createRow(response.hits[i].recipe.label, response.hits[i].recipe.ingredients);
+
+            }
+        });
+    });
+
+    createRow = (name, ingredients) => {
+
+        let newDiv = $('<div>');
+
+        $(newDiv).append(name)
+
+        for (let i = 0; i < ingredients.length; i++) {
+
+            let ingredientsDiv = $('<div>');
+
+            $(ingredientsDiv).append(ingredients[i].text);
+
+            $(newDiv).append(ingredientsDiv);
 
         }
+
+        $('#row-div').append(newDiv);
+    }*/
+
+    $('#drink-submit-button').on('click', function () {
+
+        let userInput = $('#drink-input').val().trim();
+
+        // Cocktail API with no ID/key required assignment with E6 template string for query
+        // let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
+
+        let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${userInput}`
+
+        $.ajax({
+            url: queryURL,
+            method: 'GET'
+        }).then(function (response) {
+
+            console.log(response.drinks);
+
+            for (let i = 0; i < response.drinks.length; i++) {
+                console.log(response.drinks[i].strDrink, response.drinks[i].strDrinkThumb);
+                createDrinkRow(response.drinks[i].strDrink, response.drinks[i].strDrinkThumb);
+            }
+        });
     });
-});
 
-// create row function that accepts 
-createRow = (name, ingredients) => {
 
-    // create new div
-    let newDiv = $('<div>');
+    createDrinkRow = (name, image) => {
+        let drinkDiv = $('<div>');
+        let thumb = $('<img>');
+        let button = $('<button>');
 
-    // append name of recipe to new div
-    $(newDiv).append(name)
+        $(thumb).attr('src', image);
+        $(button).attr('id', 'details');
+        $(button).attr('name', name)
 
-    // loop through ingredients
-    for (let i = 0; i < ingredients.length; i++) {
+        $(drinkDiv).append(thumb);
+        $(drinkDiv).append(name);
+        $(drinkDiv).append(button);
 
-        // create new div
-        let ingredientsDiv = $('<div>');
+        $('#drink-row').append(drinkDiv);
 
-        // append ingredients to div
-        $(ingredientsDiv).append(ingredients[i].text);
-
-        // append ingredients div to main div
-        $(newDiv).append(ingredientsDiv);
-
-        console.log(ingredients[i])
     }
 
-    // append main div to html div
-    $('#row-div').append(newDiv);
-}
+    $(document).on('click', '#details', function () {
 
-$("#drink-submit-button").on("click", function () {
+        let detailName = $(this).attr('name');
 
-    let userInput = $('#drink-input').val().trim();
+        let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${detailName}`
 
-    let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
+        $.ajax({
+            url: queryURL,
+            method: 'GET'
+        }).then(function (response) {
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-
-        console.log(response);
+            console.log(response.drinks);
+            
+        });
 
     });
+
 });
 
 
+
+
+
+
+    //------------------------------------------------------------------------
+    // Drink Image:
+    // https://www.thecocktaildb.com/images/ingredients/ice-Medium.png (350x350 pixels)
+    // 
+    // Filter searches:
+    // queryURL by drink ingredient:
+    // var drinkIn;
+    // let queryURl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${drinkIngred}`
+    //------------------------------------------------------------------------
+    // queryURL non-alcoholic:
+    // var drinkNA;
+    // let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`
+    //------------------------------------------------------------------------

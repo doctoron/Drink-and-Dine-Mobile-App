@@ -7,8 +7,8 @@ $(document).ready(function() {
     $('#recipe-div').hide();
     
     // click for toggling drink/food div
-    $('#switch').on("click", function () {
-        // console.log("I've been switched!")
+    $('#switch').on('click', function () {
+        // console.log('I've been switched!')
 
         // toggle between default and recipe
         if (toggle) {
@@ -35,7 +35,7 @@ $(document).ready(function() {
     
     
     // onclick for recipe submit 
-    $("#recipe-submit-button").on("click", function () {
+    $('#recipe-submit-button').on('click', function () {
     
         // get user input
         let userInput = $('#recipe-input').val().trim();
@@ -49,7 +49,7 @@ $(document).ready(function() {
     
         $.ajax({
             url: queryURL,
-            method: "GET"
+            method: 'GET'
         }).then(function (response) {
     
             // get whole response object
@@ -93,72 +93,81 @@ $(document).ready(function() {
         // append main div to html div
         $('#row-div').append(newDiv);
     }
-
-    //  Create onclick for drink name
-    $("#drink-submit-button").on("click", function () {
-        
-    // Get drink input from user
-        let userInput = $('#drink-input').val().trim();
-
-    // Cocktail API with no ID/key required assignment with E6 template string for query
-    // let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
-    
-    let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${userInput}`
-
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-
-        console.log(response);
-        console.log(response.drinks[0].strDrink, response.drinks[0].strDrinkThumb);
-
-    
-    // Loop through the result             
-    for (let i = 0; i < response.drinks[i].length; i++) {        
-            createRow(response.drinks[i].strDrink, response.drinks[i].strThumb[i]);        }
-    });
 });
 
-    // create row function that accepts 
-    createRow = (name,images) => {
-                // Create new div
-                let newDiv = $("<div>");
-
-                // Append name of drink to new div
-                $(newDiv).append(name)
-
-                // Loop through drinks
-                for (let i =0; i < response.drinks[i].strDrink.length; i++) {
-                
-                // Create new div
-                let drinkDiv = $("<div>")
-
-                // Append images to div
-                $(drinkDiv).append(`${response.drinks[i].strDrinkThumb}`);
-
-                // Append Ingredients div to main div
-                $(newDiv).append(`${response.drinks[i].strDrinkThumb}`);
-                // console.log(ingredientsDiv[i]);
-                }
-
-                // Append main div to HTML div
-                $('#row-div').append(newDiv);
+    //  Create onclick for drink name
+    $('#drink-submit-button').on('click', function () {
+        
+        // Get drink input from user
+            let userInput = $('#drink-input').val().trim();
+    
+    
+        // Cocktail API with no ID/key required assignment with E6 template string for query
+        // let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
+        
+        let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${userInput}`
+    
+        $.ajax({
+            url: queryURL,
+            method: 'GET'
+        }).then(function (response) {
+    
+            // get whole response object
+            console.log(response);
+    
+            // get specific object
+            console.log(response.drinks[0].strDrink, response.drinks[0].strDrinkThumb);
+    
+        
+        // Loop through the result             
+        for (let i = 0; i < response.drinks[i].length; i++) {        
+            console.log (response.drinks[i].strDrink, response.drinks[i].strDrinkThumb);
+                createRow(response.drinks[i].strDrink, response.drinks[i].strDrinkThumb);
             }
         });
-                                                                   
+    });
+    
+        // create row function that accepts 
+        createRow = (name,thumb) => {
+                    // Create new div
+                    let newDiv = $('<div>');
+    
+                    // Append name of drink to new div
+                    $(newDiv).append(name)
+    
+                    // Loop through drinks
+                    for (let i =0; i < name.length; i++) {
+                    console.log(response.name.length);
+                   
+                    // Create new div
+                    let drinkDiv = $('<div>')
+    
+                    // Append thumbnail images to div
+                    $(thumbDiv).append(strDrinkThumb[i].img);
+    
+                    // Append Ingredients div to main div
+                    $(newDiv).append(thumbDiv);
 
-        
-//------------------------------------------------------------------------
-// Drink Image:
-// https://www.thecocktaildb.com/images/ingredients/ice-Medium.png (350x350 pixels)
-// 
-// Filter searches:
-// queryURL by drink ingredient:
-// var drinkIn;
-// let queryURl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${drinkIngred}`
-//------------------------------------------------------------------------
-// queryURL non-alcoholic:
-// var drinkNA;
-// let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`
-//------------------------------------------------------------------------
+                    // console.log(ingredientsDiv[i]);
+                    }
+    
+                    // Append main div to HTML div
+                    $('#row-div').append(newDiv);
+                }
+   
+                                                                       
+    
+            
+    //------------------------------------------------------------------------
+    // Drink Image:
+    // https://www.thecocktaildb.com/images/ingredients/ice-Medium.png (350x350 pixels)
+    // 
+    // Filter searches:
+    // queryURL by drink ingredient:
+    // var drinkIn;
+    // let queryURl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${drinkIngred}`
+    //------------------------------------------------------------------------
+    // queryURL non-alcoholic:
+    // var drinkNA;
+    // let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`
+    //------------------------------------------------------------------------

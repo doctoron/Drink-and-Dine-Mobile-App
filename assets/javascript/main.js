@@ -8,7 +8,7 @@ $(document).ready(function() {
     
     // click for toggling drink/food div
     $('#switch').on("click", function () {
-        console.log("I've been switched!")
+        // console.log("I've been switched!")
 
         // toggle between default and recipe
         if (toggle) {
@@ -53,10 +53,10 @@ $(document).ready(function() {
         }).then(function (response) {
     
             // get whole response object
-            console.log(response);
+            // console.log(response);
     
             // get specific object within whole response object
-            console.log(response.hits[0].recipe.source);
+            // console.log(response.hits[0].recipe.source);
     
             // loop through recipes and put them into an object of a function
             for (let i = 0; i < response.hits.length; i++) {
@@ -68,6 +68,7 @@ $(document).ready(function() {
     
     // create row function that accepts 
     createRow = (name, ingredients) => {
+
         // create new div
         let newDiv = $('<div>');
 
@@ -75,76 +76,78 @@ $(document).ready(function() {
         $(newDiv).append(name)
 
         // loop through ingredients
-        for (let i = 0; i < ingredients.length; i++) {
+            for (let i = 0; i < ingredients.length; i++) {
         
-            // create new div
-            let ingredientsDiv = $('<div>');
+        // create new div
+                let ingredientsDiv = $('<div>');
         
-            // append ingredients to div
-            $(ingredientsDiv).append(ingredients[i].text);
+        // append ingredients to div
+                $(ingredientsDiv).append(ingredients[i].text);
         
-            // append ingredients div to main div
-            $(newDiv).append(ingredientsDiv);
-            console.log(ingredients[i])
+        // append ingredients div to main div
+                $(newDiv).append(ingredientsDiv);
+
+                // console.log(ingredients[i])
         }
     
         // append main div to html div
         $('#row-div').append(newDiv);
     }
-    // queryURL by drink name:
+
+    //  Create onclick for drink name
     $("#drink-submit-button").on("click", function () {
         
-        // Get user drink input from form
+    // Get drink input from user
         let userInput = $('#drink-input').val().trim();
 
-        // Cocktail API with no ID/key required assignment with E6 template string for query
-        let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
-        
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function (response) {     
-            // confirm whole object response       
-            console.log(response);
+    // Cocktail API with no ID/key required assignment with E6 template string for query
+    // let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
+    
+    let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${userInput}`
 
-            // get specific object within whole response object i.e ingredients
-            console.log(response.drinks[0].strIngredient1);
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
 
-            // console.log(response.drinks[0].strIngredient2);
-            // console.log(response.drinks[0].strMeasure1);
-            // console.log(response.drinks[0].strMeasure2);            // console.log(response.drinks[1].strMeasure5);
-            
-            /* Will need a function to loop through the results and add 
-            results until there is a NULL entry */
-            for (let i = 0; i < response.drinks[i].length-1; i++) {
-                console.log(`(Ingredients: ${response.drinks[i].strIngredient1} ${response.drinks[i].strMeasure1} 
-                    Directions: ${response.drinks[0].strInstructions}`);       
-                    
-                    createRow(`(Ingredients: ${response.drinks[i].strIngredient1} ${response.drinks[i].strMeasure1} Directions: ${response.drinks[i].strInstructions}`);
+        console.log(response);
+        console.log(response.drinks[0].strDrink, response.drinks[0].strDrinkThumb);
 
-                    // Create row function that accepts response data
-                    createRow = (drinkName, ingredients, instructions) => {
+    
+    // Loop through the result             
+    for (let i = 0; i < response.drinks[i].length; i++) {        
+            createRow(response.drinks[i].strDrink, response.drinks[i].strThumb[i]);        }
+    });
+});
 
-                    // Append name of drink to new div
-                    $(newDiv).append(drinkName)
-                        
-                    // Loop through ingredients
-                    for (let i =0; i < ingredients.length; i++) {
-                            
-                            // Create new div
-                            let drinkIngred = $('<div>');
-                                                        
-                    // Append Ingredients div to main div
-                            $(newDiv).append(drinkIngred);
-                            console.log(drinkIngred[i]);
-                        }
-                    // Append main div to HTML div
-                        $('#row-div').append(newDiv);
-                    }}},
-                    
-        )},
-    )},
-)
+    // create row function that accepts 
+    createRow = (name,images) => {
+                // Create new div
+                let newDiv = $("<div>");
+
+                // Append name of drink to new div
+                $(newDiv).append(name)
+
+                // Loop through drinks
+                for (let i =0; i < response.drinks[i].strDrink.length; i++) {
+                
+                // Create new div
+                let drinkDiv = $("<div>")
+
+                // Append images to div
+                $(drinkDiv).append(`${response.drinks[i].strDrinkThumb}`);
+
+                // Append Ingredients div to main div
+                $(newDiv).append(`${response.drinks[i].strDrinkThumb}`);
+                // console.log(ingredientsDiv[i]);
+                }
+
+                // Append main div to HTML div
+                $('#row-div').append(newDiv);
+            }
+        });
+                                                                   
+
         
 //------------------------------------------------------------------------
 // Drink Image:

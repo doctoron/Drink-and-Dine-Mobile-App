@@ -4,30 +4,31 @@ $(document).ready(function() {
     let toggle = true;
     
     // hide drink div first
-    $('#drink-div').hide();
+    $('#recipe-div').hide();
     
     // click for toggling drink/food div
-    $('.slider').on("click", function () {
+    $('#switch').on("click", function () {
         console.log("I've been switched!")
+
         // toggle between default and recipe
-        if (toggle === !toggle) {
-            $('#recipe-div').hide();
-            $('#drink-div').show();
+        if (toggle) {
+            $('#recipe-div').show();
+            $('#drink-div').hide();
     
             // slide the toggle to switch
             $('#switch').prop('checked', false).change()
             // make opposite of current boolean value
-            !toggle;
+            toggle = !toggle;
     
-        } else if (!toggle === toggle) {
-            $('#recipe-div').show();
-            $('#drink-div').hide();
+        } else if (!toggle) {
+            $('#drink-div').show();
+            $('#recipe-div').hide();
     
             // check the box
             $('#switch').prop('checked', true).change();
     
             // make opposite of what bool it currently is
-            !toggle === toggle;
+            toggle = !toggle;
         }
     
     });
@@ -95,6 +96,7 @@ $(document).ready(function() {
         
         // Get user drink input from form
         let userInput = $('#drink-input').val().trim();
+
         // Cocktail API with no ID/key required assignment with E6 template string for query
         let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
         
@@ -104,8 +106,8 @@ $(document).ready(function() {
         }).then(function (response) {     
             // confirm whole object response       
             console.log(response);
-            // get specific object within whole response object
-            // get drink ingredients:
+
+            // get specific object within whole response object i.e ingredients
             console.log(response.drinks[0].strIngredient1);
 
             // console.log(response.drinks[0].strIngredient2);
@@ -115,7 +117,7 @@ $(document).ready(function() {
             /* Will need a function to loop through the results and add 
             results until there is a NULL entry */
             for (let i = 0; i < response.drinks[i].length-1; i++) {
-                console.log(`(Ingredients: ${response.drinks[0].strIngredient1} ${response.drinks[0].strMeasure1} 
+                console.log(`(Ingredients: ${response.drinks[i].strIngredient1} ${response.drinks[i].strMeasure1} 
                     Directions: ${response.drinks[0].strInstructions}`);       
                     
                     createRow(`(Ingredients: ${response.drinks[i].strIngredient1} ${response.drinks[i].strMeasure1} Directions: ${response.drinks[i].strInstructions}`);

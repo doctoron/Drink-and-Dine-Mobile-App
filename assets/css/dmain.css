@@ -11,7 +11,7 @@
     height: 0;
   }
   
-  .slider {
+  .toggle {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -23,7 +23,7 @@
     transition: .4s;
   }
   
-  .slider:before {
+  .toggle:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -50,10 +50,10 @@
   }
   
   /* Rounded sliders */
-  .slider.round {
+  .toggle.round {
     border-radius: 34px;
   }
   
-  .slider.round:before {
+  .toggle.round:before {
     border-radius: 50%;
   }

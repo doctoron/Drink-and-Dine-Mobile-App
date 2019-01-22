@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
     let toggle = true;
@@ -132,7 +133,6 @@ $(document).ready(function () {
     });
 
 });
-
 
 
 

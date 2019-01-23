@@ -1,9 +1,9 @@
 
 $(document).ready(function () {
 
-
-
     $('#drink-submit-button').on('click', function () {
+
+        $('#drink-row').empty();
 
         let userInput = $('#drink-input').val().trim();
 
@@ -46,7 +46,10 @@ $(document).ready(function () {
     $(document).on('click', '#details', function () {
 
         let detailName = $(this).attr('name');
-console.log(detailName)
+
+        let detailDiv = $('<div>');
+        $(this).append(detailDiv);
+
         let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${detailName}`
 
         $.ajax({
@@ -54,15 +57,29 @@ console.log(detailName)
             method: 'GET'
         }).then(function (response) {
 
-            console.log(response.drinks);
+            console.log(response.drinks)
+
+            let strIngredients = 'response.drinks[0].strIngredient';
+            let strMeasure = "response.drinks[0].strMeasure";
+            let arrIngredients = [];
+
+            for (let i = 1; i < 16; i++) {
+                let ingredient = str + i;
+
+                arr.push(ingredient);
+
+                //$(detailDiv).append(eval(ingredient));
+                
+            }
+
+            console.log(arr)
+            
 
         });
 
     });
 
 });
-
-
 
 
 

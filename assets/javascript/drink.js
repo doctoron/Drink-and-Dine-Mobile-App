@@ -1,8 +1,6 @@
 
 $(document).ready(function () {
 
-
-
     $('#drink-submit-button').on('click', function () {
 
         let userInput = $('#drink-input').val().trim();

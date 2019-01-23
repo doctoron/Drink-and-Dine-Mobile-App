@@ -1,28 +1,29 @@
+$(document).ready(function () {
 
-// var that switches between drinks and food div
-let toggle = true;
+    let toggle = true;
 
-// hide drink div first
-$('#drink-div').hide();
+    $('#recipe-div').hide();
 
-// click for toggling drink/food div
-$('#switch').on("click", function () {
+    $('#switch').on('click', function () {
 
-    // toggle between default and recipe
-    if (toggle) {
-        $('#recipe-div').hide();
-        $('#drink-div').show();
+        if (toggle) {
+            $('#recipe-div').show();
+            $('#drink-div').hide();
 
-        // check the box
-        $('#switch').prop('checked', false).change();
+            $('#switch').prop('checked', false).change()
 
+<<<<<<< HEAD
         // make opposite of what bool it currently is
         toggle = !toggle
+=======
+            toggle = !toggle;
+>>>>>>> 0559b5cfb70ed286ab4f848f24eef30cb7694a3d
 
-    } else if (!toggle) {
-        $('#recipe-div').show();
-        $('#drink-div').hide();
+        } else if (!toggle) {
+            $('#drink-div').show();
+            $('#recipe-div').hide();
 
+<<<<<<< HEAD
         // check the box
         $('#switch').prop('checked', true).change();
 
@@ -60,53 +61,12 @@ $("#recipe-submit-button").on("click", function () {
         // loop through recipes and put them into an object of a function
         for (let i = 0; i < response.hits.length; i++) {
             createRow(response.hits[i].recipe.label, response.hits[i].recipe.ingredients);
+=======
+            $('#switch').prop('checked', true).change();
+>>>>>>> 0559b5cfb70ed286ab4f848f24eef30cb7694a3d
 
+            toggle = !toggle;
         }
-    });
-});
-
-// create row function that accepts 
-createRow = (name, ingredients) => {
-
-    // create new div
-    let newDiv = $('<div>');
-
-    // append name of recipe to new div
-    $(newDiv).append(name)
-
-    // loop through ingredients
-    for (let i = 0; i < ingredients.length; i++) {
-
-        // create new div
-        let ingredientsDiv = $('<div>');
-
-        // append ingredients to div
-        $(ingredientsDiv).append(ingredients[i].text);
-
-        // append ingredients div to main div
-        $(newDiv).append(ingredientsDiv);
-
-        console.log(ingredients[i])
-    }
-
-    // append main div to html div
-    $('#row-div').append(newDiv);
-}
-
-$("#drink-submit-button").on("click", function () {
-
-    let userInput = $('#drink-input').val().trim();
-
-    let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
-
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-
-        console.log(response);
 
     });
 });
-
-

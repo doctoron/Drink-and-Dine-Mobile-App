@@ -1,59 +1,39 @@
-#switch {
+body {
+    background-image: url("https://www.eastcoastrustic.com/wp-content/uploads/2017/06/barn-wood-grey-and-brown.jpg"); background-size: 100%;
+}
+
+h1 {
+    font-size: 100px;
+}
+
+.containerhead {
+    margin-top: 30px;
+    padding-right: 50px;
+    padding-left:50px;
+}
+
+
+header {
+    background: rgba(0,0,0,0.5);
+    height: 200px;
+    width: 200px;
+    align-content: center;
+    text-align: center;
+    border-radius: 300px;
+    padding-top: 50px;
     position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  #switch input { 
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #008000;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: #ffffff;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #c54040;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #08580f;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+    color: rgb(145, 145, 145);
+    font-family: 'Lobster', cursive;
+} 
+
+
+.container1 #drink-div {
+    
+    height: 40px;
+    width:40px;
+}
+
+#recipe-div {
+    position: relative;
+}
+

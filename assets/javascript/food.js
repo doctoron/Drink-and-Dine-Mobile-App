@@ -37,6 +37,7 @@ $(document).ready(function () {
         let recipeImage = $('<img>');
         $(recipeImage).attr('src', image)
 
+
         $(recipeDiv).append(recipeImage)
 
         $("#food-row").append(recipeDiv)

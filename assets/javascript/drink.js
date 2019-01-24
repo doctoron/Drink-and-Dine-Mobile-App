@@ -8,16 +8,14 @@ $(document).ready(function () {
         let userInput = $('#drink-input').val().trim();
 
         //     // Cocktail API with no ID/key required assignment with E6 template string for query
-        //     // let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
-
+        //     // Search API by ingredient for cocktail drinks
         let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${userInput}`
 
         $.ajax({
             url: queryURL,
             method: 'GET'
         }).then(function (response) {
-
-            // console.log(response.drinks);
+            console.log(response.drinks);
 
             for (let i = 0; i < response.drinks.length; i++) {
                 createDrinkRow(response.drinks[i].strDrink, response.drinks[i].strDrinkThumb, i);
@@ -30,7 +28,7 @@ $(document).ready(function () {
         let thumb = $('<img>');
         let button = $('<button>');
 
-        $(drinkDiv).attr('id', id)
+        $(drinkDiv).attr('id', id);
 
         $(thumb).attr('src', image);
         $(button).attr('id', 'details');
@@ -39,9 +37,6 @@ $(document).ready(function () {
         $(drinkDiv).append(thumb);
         $(drinkDiv).append(name);
         $(drinkDiv).append(button);
-
-
-
 
         $('#drink-row').append(drinkDiv);
 
@@ -53,10 +48,11 @@ $(document).ready(function () {
         let newDiv = $('<div>');
         $(this).append(newDiv)
         console.log('The name of this ' + 'drink is: ' + detailName);
-
+        
         let detailDiv = $('<div>');
         $(this).append(detailDiv);
 
+        //Search by cocktail drink name
         let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${detailName}`
 
         $.ajax({
@@ -67,20 +63,20 @@ $(document).ready(function () {
                 console.log(response);
                 console.log('full array: ' + response.drinks[0].strIngredient1);
                 console.log('loop through instructions to find this: ' + response.drinks[i].strInstructions);
-                console.log(response.drinks[0].strIngredient10);
-                // let str = response.drinks[0].strIngredient10
-                // str = str.substring(0, str.length -2);
-                // console.log(str);
+                console.log(response.drinks[0].strIngredient+i);
 
-                $(newDiv).append(response.drinks[i].strInstructions)
-                console.log(response)
+                let str = response.drinks[0].strIngredient1;
+                console.log(str);
+                str = str.substring(0, str.length -1);
 
+                $(newDiv).append(response.drinks[i].strInstructions);
+                console.log(str);
                 for (let i = 1; i < 16; i++) {
-                    let strIngredients = 'response.drinks[0].strIngredient';
+                    // let strIngredients = 'response.drinks[0].strIngredient';
                     // let strMeasure = 'response.drinks[0].strMeasure';
                     let arrIngredients = [];
-                    let arrMeasures = [];
-                    let ingredient = strIngredient + i;
+                    // let arrMeasures = [];
+                    ingredient = str + i;
                     arrIngredients.push(ingredient[i]);
                     // let measure = strMeasure + i;
                     // arrMeasure.push(measure[i]);
@@ -89,29 +85,29 @@ $(document).ready(function () {
                     console.log(arrIngredients);
                     // console.log(strMeasure);
 
-                };
+                    getIngredients = () => {
+                        for (let i = 1; i < 16; i++) {
+                            let strIngredient = str + i
+                            console.log(strIngredient);
+                            arrIngredients.push(strIngredient);
+                            getIngredients();
+                            $(detailDiv).append(eval(strIngredient));
+                        }
+                        // let arrMeasures = [];
+                        // getMeasures = () => {
+                        //     for (let i = 1; i < 16; i++) {
+                        //         let strMeasure = str + i
+                        //         arrMeasures.push(strMeasures);
+                        // getMeasures();
+                        // $(detailDiv).append(eval(strMeasures));
+                    }
+                }
             }
         })
     })
-    let arrIngredients = [];
-    getIngredients = () => {
-        for (let i = 1; i < 16; i++) {
-            let strIngredient = str + i
-            arrIngredients.push(strIngredient);
-        }
-        let arrMeasures = [];
-        getMeasures = () => {
-            for (let i = 1; i < 16; i++) {
-                let strMeasure = str + i
-                arrMeasures.push(strMeasures);
-            }
-
-
-            $(detailDiv).append(eval(ingredient));
-
-        }
-    }
 })
+
+
 
 
 /*        let detailsDiv = $('<div>');

@@ -33,11 +33,14 @@ $(document).ready(function () {
 
         console.log(name, image, ingredients)
 
+        
+
         let recipeDiv = $('<div>');
         let recipeImage = $('<img>');
         $(recipeImage).attr('src', image)
 
         $(recipeDiv).append(name)
+
 
         $(recipeDiv).append(recipeImage)
 

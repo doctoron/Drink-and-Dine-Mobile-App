@@ -37,6 +37,7 @@ $(document).ready(function () {
         let recipeImage = $('<img>');
         $(recipeImage).attr('src', image)
 
+        $(recipeDiv).append(name)
 
         $(recipeDiv).append(recipeImage)
 
@@ -49,11 +50,10 @@ $(document).ready(function () {
             $(ingredientLinesdiv).append(ingredients[i])
 
             $(recipeDiv).append(ingredientLinesdiv)
-
-            
+    
+        
             
         }
-           
  
         
 

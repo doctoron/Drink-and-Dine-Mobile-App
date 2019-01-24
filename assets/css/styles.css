@@ -26,7 +26,10 @@ header {
     font-family: 'Lobster', cursive;
 } 
 
+img {
+    width: 300px;
 
+}
 .container1 #drink-div {
     
     height: 40px;

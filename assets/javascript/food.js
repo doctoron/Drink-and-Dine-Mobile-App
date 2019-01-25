@@ -38,11 +38,11 @@ $(document).ready(function () {
         }).then(function (response) {
 
             for (let i = 0; i < response.hits.length; i++) {
-
-                //  console.log(response.hits[i])
-
+    
+              //  console.log(response.hits[i])
+            
                 let hits = response.hits[i].recipe;
-                createRecipeRow(hits.label, hits.image, hits.ingredientLines)
+                createRecipeRow(hits.label, hits.image, hits.ingredientLines, hits.url)
 
             }
 

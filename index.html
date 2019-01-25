@@ -27,6 +27,22 @@
                         <div class="green"></div>
                         <h1>Drink & Dine</h1>
                     </div>
+                    <div class="w3-container">
+                        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button-tiny w3-green">
+                            Help</button>
+                        <div id="id01" class="w3-modal">
+                            <div class="w3-modal-content">
+                                <div class="w3-container">
+                                    <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                                    <p>Start by selecting either the food or drink recipe search using the check box above.</p>
+                                    <p>Enter the food or drink ingredients you already have on hand (i.e. meat, seasoning, tequilla or lime).</p>
+                                    <p>Use a single alcohol ingredient for cocktails, but multiple ingredients can be use for searching</p> 
+                                    <p>food recipes.</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <input id='switch' type="checkbox" checked data-toggle="toggle" data-on="Ready" data-off="Not Ready"
@@ -38,7 +54,8 @@
                 <div class="col-sm-6">
                     <div id='recipe-div'>
                         <input id='recipe-input'>
-                        <button class='w3-btn btn-small w3-black w3-hover-red'success' id='recipe-submit-button'>Show Recipes</button>
+                        <button class='w3-btn btn-small w3-black w3-hover-red' success' id='recipe-submit-button'>Show
+                            Recipes</button>
                         <div id='food-row'></div>
                         <div id='food-name'></div>
                     </div>
@@ -49,9 +66,11 @@
                 <div class="col-sm-6">
                     <div id='drink-div'>
                         <input id='drink-input'>
-                        <button class='w3-btn w3-small w3-black w3-hover-red' id='drink-submit-button' value='Input Button'>Submit Drink</button>
+                        <button class='w3-btn w3-small w3-black w3-hover-red' id='drink-submit-button' value='Input Button'>Submit
+                            Drink</button>
                         <div id='drink-row'></div>
                     </div>
+                    
                 </div>
             </div>
         </div>

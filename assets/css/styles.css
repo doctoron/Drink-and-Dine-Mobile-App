@@ -42,7 +42,9 @@ li {
     #drink-input {
     color: #006400;
 }
-   
+#id01 {
+    text-align: center;
+}   
 #details {
     color: #022c02;
     text-align: left;

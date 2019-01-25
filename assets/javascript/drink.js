@@ -14,7 +14,7 @@ $(document).ready(function () {
             url: queryURL,
             method: 'GET'
         }).then(response => {
-            console.log(response.drinks);
+            console.log(response);
 
             // Grab name and thumbnail image of drinks from response
             for (let i = 0; i < response.drinks.length; i++) {
@@ -51,7 +51,6 @@ $(document).ready(function () {
     }
 
     $(document).on('click', '#details', function () {
-
         let detailName = $(this).attr('name');
         let newDiv = $('<div>');
 
@@ -118,8 +117,6 @@ $(document).ready(function () {
         })
     })
 })
-
-
 
 
 /*        let detailsDiv = $('<div>');

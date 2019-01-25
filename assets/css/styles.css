@@ -17,6 +17,11 @@ body {
     overflow: hidden;
 } 
 
+img {
+    width: 300px;
+    height: 300px;
+}
+
 .inforow {
     display: flex;
     flex-direction: column;

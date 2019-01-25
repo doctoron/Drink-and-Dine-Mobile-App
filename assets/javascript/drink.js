@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     $('#drink-submit-button').on('click', function () {
@@ -7,36 +6,39 @@ $(document).ready(function () {
 
         let userInput = $('#drink-input').val().trim();
 
-        // Cocktail API with no ID/key required assignment with E6 template string for query
-        // let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
-
+        //     // Cocktail API with no ID/key required assignment with E6 template string for query
+        //     // Search API by ingredient for cocktail drinks
         let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${userInput}`
 
         $.ajax({
             url: queryURL,
             method: 'GET'
-        }).then(function (response) {
+        }).then(response => {
+            console.log(response.drinks);
 
-            // console.log(response.drinks);
-
+        // Grab name and thumbnail image of drinks from response
             for (let i = 0; i < response.drinks.length; i++) {
-                // console.log(response.drinks[i].strDrink, response.drinks[i].strDrinkThumb);
-                createDrinkRow(response.drinks[i].strDrink, response.drinks[i].strDrinkThumb);
+                createDrinkRow(response.drinks[i].strDrink, response.drinks[i].strDrinkThumb, i);
             }
         });
     });
-
-    createDrinkRow = (name, image) => {
+        // Prepare to display results and a button for additional details
+    createDrinkRow = (name, image, id) => {
         let drinkDiv = $('<div>');
         let thumb = $('<img>');
         let button = $('<button>');
+        let titleDiv = $('<div');
+        $(titleDiv).append(name);
+
+        $(drinkDiv).attr('id', id);
 
         $(thumb).attr('src', image);
         $(button).attr('id', 'details');
-        $(button).attr('name', name)
+        $(button).attr('name', name);
+        $(titleDiv).attr('id, titleDiv')
 
         $(drinkDiv).append(thumb);
-        $(drinkDiv).append(name);
+        $(drinkDiv).append(titleDiv);
         $(drinkDiv).append(button);
 
         $('#drink-row').append(drinkDiv);
@@ -46,42 +48,68 @@ $(document).ready(function () {
     $(document).on('click', '#details', function () {
 
         let detailName = $(this).attr('name');
+        let newDiv = $('<div>');
+        $(this).append(newDiv)
+        console.log('The name of this ' + 'drink is: ' + detailName);
 
         let detailDiv = $('<div>');
         $(this).append(detailDiv);
 
+        //Search by cocktail drink name
         let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${detailName}`
 
         $.ajax({
             url: queryURL,
             method: 'GET'
-        }).then(function (response) {
+        }).then(response => {
+            for (let i = 0; i < response.drinks.length; i++) {
+                console.log(response);
 
-            console.log(response.drinks)
+                $(newDiv).append(response.drinks[i].strInstructions);
 
-            let strIngredients = 'response.drinks[0].strIngredient';
-            let strMeasure = "response.drinks[0].strMeasure";
-            let arrIngredients = [];
+                let strIngredients = 'response.drinks[0].strIngredient';
+                let strMeasure = 'response.drinks[0].strMeasure';
 
-            for (let i = 1; i < 16; i++) {
-                let ingredient = str + i;
+            // Create variables for ingredients & measurements 
+                let arrIngredients = [];
+                let arrMeasures = [];
 
-                arr.push(ingredient);
+                console.log(strIngredients);
+                console.log(arrIngredients);
 
-                //$(detailDiv).append(eval(ingredient));
-                
+                for (let i = 1; i < 16; i++) {
+                    let strIng = strIngredients + i;
+                    console.log(eval(strIng));
+
+                    let strMeas = strMeasure + i;
+                    console.log(eval(strMeas));
+
+                    arrIngredients.push(strIng);
+                    arrMeasures.push(strMeas);
+
+                    $(newDiv).append(eval(strIng));
+                    $(newDiv).append(eval(strMeas));
+                }
+                // let arrMeasures = [];
+                // getMeasures = () => {
+                //     for (let i = 1; i < 16; i++) {
+                //         let strMeasure = str + i
+                //         arrMeasures.push(strMeasures);
+                // getMeasures();
+                // $(detailDiv).append(eval(strMeasures));
+
             }
-
-            console.log(arr)
-            
-
-        });
-
-    });
-
-});
+        })
+    })
+})
 
 
+
+
+/*        let detailsDiv = $('<div>');
+        $(detailsDiv).attr(this);
+        $(detailsDiv).append(this);
+        $('#details-div').append(detailsDiv);*/
 
 //------------------------------------------------------------------------
 // Drink Image:

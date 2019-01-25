@@ -4,18 +4,22 @@ body {
 }
 
 .header {
-    background: rgba(0,0,0,0.5);
-    height: 200px;
+    background: #00000080;
+    /* height: 200px; */
     width: 200px;
+    height: 200px;
     align-content: center;
     text-align: center;
     border-radius: 300px;
     padding-top: 50px;
     position: relative;
-    color: rgb(170, 175, 170);
+    color: #aaafaa;
     font-family: 'Lobster', cursive;
     overflow: hidden;
 } 
+img {
+    width: 300px;
+}
 
 img {
     width: 300px;
@@ -29,13 +33,27 @@ img {
 }
 
 #recipe-div {
-    background-color: rgb(182, 195, 255);
+    background-color:rosybrown;
     border: solid;
 }
-
+li {
+    list-style: none;
+}
 #drink-div {
     background-color: rgb(118, 165, 118);
     border: solid;
+    color: #f5f5f5;
+}
+
+#switch-drink {
+    height:20px;
+    width: 20px;
+}
+
+}   
+#details {
+    color: #022c02;
+    justify-content: left;
 }
 
 #titleDiv {

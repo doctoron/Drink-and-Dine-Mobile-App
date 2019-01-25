@@ -1,3 +1,21 @@
+
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyCBsImEhzdS6ukUkH6UaPtcQdMh6aEpfn4",
+    authDomain: "drink-n-dine.firebaseapp.com",
+    databaseURL: "https://drink-n-dine.firebaseio.com",
+    projectId: "drink-n-dine",
+    storageBucket: "drink-n-dine.appspot.com",
+    messagingSenderId: "339528818297"
+};
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(config);
+}
+
+var database = firebase.database();
+
+
 $(document).ready(function () {
 
     $('#drink-submit-button').on('click', function () {
@@ -5,6 +23,10 @@ $(document).ready(function () {
         $('#drink-row').empty();
 
         let userInput = $('#drink-input').val().trim();
+
+        database.ref('/drink').set({
+            lastSearch: userInput,
+        });
 
         //     // Cocktail API with no ID/key required assignment with E6 template string for query
         //     // Search API by ingredient for cocktail drinks
@@ -16,13 +38,13 @@ $(document).ready(function () {
         }).then(response => {
             console.log(response.drinks);
 
-        // Grab name and thumbnail image of drinks from response
+            // Grab name and thumbnail image of drinks from response
             for (let i = 0; i < response.drinks.length; i++) {
                 createDrinkRow(response.drinks[i].strDrink, response.drinks[i].strDrinkThumb, i);
             }
         });
     });
-        // Prepare to display results and a button for additional details
+    // Prepare to display results and a button for additional details
     createDrinkRow = (name, image, id) => {
         let drinkDiv = $('<div>');
         let thumb = $('<img>');
@@ -50,10 +72,15 @@ $(document).ready(function () {
 
         let detailName = $(this).attr('name');
         let newDiv = $('<div>');
+
+        // Prevent reloading the div
+        $(this).empty();
+
         $(this).append(newDiv)
         console.log('The name of this ' + 'drink is: ' + detailName);
 
         let detailDiv = $('<div>');
+
         $(this).append(detailDiv);
 
         //Search by cocktail drink name
@@ -71,25 +98,32 @@ $(document).ready(function () {
                 let strIngredients = 'response.drinks[0].strIngredient';
                 let strMeasure = 'response.drinks[0].strMeasure';
 
-            // Create variables for ingredients & measurements 
+                // Create variables for ingredients & measurements 
                 let arrIngredients = [];
                 let arrMeasures = [];
 
                 console.log(strIngredients);
                 console.log(arrIngredients);
 
+                let ul = $('<ul>');
+                $(newDiv).append(ul);
+
                 for (let i = 1; i < 16; i++) {
                     let strIng = strIngredients + i;
+                    let strMeas = strMeasure + i;
+
+                    console.log(eval(strMeas));
                     console.log(eval(strIng));
 
-                    let strMeas = strMeasure + i;
-                    console.log(eval(strMeas));
-
-                    arrIngredients.push(strIng);
-                    arrMeasures.push(strMeas);
-
-                    $(newDiv).append(eval(strIng));
-                    $(newDiv).append(eval(strMeas));
+                    if (!eval(strIng) == "" || !eval(strMeas) == ' ' || !eval(strMeas) == '') {
+                        let li = $('<li>');
+                        
+                        arrIngredients.push(strIng);
+                        arrMeasures.push(strMeas);
+                        $(ul).append(li);
+                        $(li).append(eval(strIng)+" ");
+                        $(li).append(eval(strMeas));
+                    }
                 }
                 // let arrMeasures = [];
                 // getMeasures = () => {
@@ -100,11 +134,19 @@ $(document).ready(function () {
                 // $(detailDiv).append(eval(strMeasures));
 
             }
-        })
-    })
-})
+        });
+    });
+});
 
+database.ref('/drink').on("value", function (snapshot) {
 
+    var sv = snapshot.val();
+
+    $('#drink-last-search').text(sv.lastSearch);
+
+}, function (errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+});
 
 
 /*        let detailsDiv = $('<div>');

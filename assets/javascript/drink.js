@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     $('#drink-submit-button').on('click', function () {
@@ -28,16 +27,20 @@ $(document).ready(function () {
         let drinkDiv = $('<div>');
         let thumb = $('<img>');
         let button = $('<button>');
+        let titleDiv = $('<div>');
 
+        $(titleDiv).append(name);
         $(drinkDiv).attr('id', id);
 
         $(thumb).attr('src', image);
         $(button).attr('id', 'details');
         $(button).attr('name', name);
+        $(titleDiv).attr('id', 'titleDiv');
 
         $(drinkDiv).append(thumb);
-        $(drinkDiv).append(name);
+        $(drinkDiv).append(titleDiv);
         $(drinkDiv).append(button);
+        
 
         $('#drink-row').append(drinkDiv);
 
@@ -105,11 +108,8 @@ $(document).ready(function () {
 
 
 /*        let detailsDiv = $('<div>');
-
         $(detailsDiv).attr(this);
-
         $(detailsDiv).append(this);
-
         $('#details-div').append(detailsDiv);*/
 
 //------------------------------------------------------------------------
@@ -125,4 +125,3 @@ $(document).ready(function () {
 // var drinkNA;
 // let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`
 //------------------------------------------------------------------------
-

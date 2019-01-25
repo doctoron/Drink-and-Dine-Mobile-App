@@ -17,6 +17,11 @@ body {
     overflow: hidden;
 } 
 
+img {
+    width: 300px;
+    height: 300px;
+}
+
 .inforow {
     display: flex;
     flex-direction: column;
@@ -29,6 +34,14 @@ body {
 }
 
 #drink-div {
-    background-color: green;
+    background-color: rgb(118, 165, 118);
     border: solid;
+}
+
+#titleDiv {
+    font-size: 30px;
+    font-family: 'Satisfy', cursive;
+}
+
+#details {
 }

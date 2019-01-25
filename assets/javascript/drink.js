@@ -61,9 +61,8 @@ $(document).ready(function () {
      
         $(titleDiv).attr('id', 'titleDiv'); //
         
-
-        $(drinkDiv).append(thumb);
         $(drinkDiv).append(titleDiv); //
+        $(drinkDiv).append(thumb);
         $(drinkDiv).append(button);
         $(drinkDiv).append(infoDiv);
 

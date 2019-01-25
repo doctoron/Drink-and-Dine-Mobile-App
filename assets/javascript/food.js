@@ -68,6 +68,7 @@ $(document).ready(function () {
         $(recipeImage).attr('src', image);
         $(a).text('Press here for instructions');
         $(a).attr("href", url);
+        $(a).attr('target', '_blank')
 
         $(recipeDiv).append(name);
         $(recipeDiv).append(p);

@@ -14,6 +14,10 @@ if (!firebase.apps.length) {
 
 var database = firebase.database();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 61cc47ca1178162ebcaa82d93ba8911c0090d49d
 $(document).ready(function () {
 
     $('#recipe-submit-button').on('click', function () {
@@ -41,7 +45,11 @@ $(document).ready(function () {
     
               //  console.log(response.hits[i])
             
+<<<<<<< HEAD
                 let hits = response.hits[i].recipe;
+=======
+                let hits = response.hits[i].recipe ;
+>>>>>>> 61cc47ca1178162ebcaa82d93ba8911c0090d49d
                 createRecipeRow(hits.label, hits.image, hits.ingredientLines, hits.url)
 
             }
@@ -54,37 +62,52 @@ $(document).ready(function () {
     createRecipeRow = (name, image, ingredients, url ) => {
 
         console.log(name, image, ingredients, url);
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 61cc47ca1178162ebcaa82d93ba8911c0090d49d
         let recipeDiv = $('<div>');
         let recipeImage = $('<img>');
         let a = $('<a>');
         
+
         let p = $('<p>');
         $(p).append(a);
 
+        $(a).attr('id', 'link');
+        $(recipeDiv).attr('id', 'titleDivFood');
+
         $(recipeImage).attr('src', image);
         $(a).text('Press here for instructions');
-        $(a).attr("href", url)
+        $(a).attr("href", url);
 
         $(recipeDiv).append(name);
         $(recipeDiv).append(p);
 
+
         $(recipeDiv).append(recipeImage);
 
-        $("#food-row").append(recipeDiv)
+        $("#food-row").append(recipeDiv);
 
         for (let i = 0; i < ingredients.length; i++) {
 
             let ingredientLinesdiv = $('<div>');
 
+            $(ingredientLinesdiv).attr('id', 'instructions');
+
             $(ingredientLinesdiv).append(ingredients[i])
 
             $(recipeDiv).append(ingredientLinesdiv)
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 61cc47ca1178162ebcaa82d93ba8911c0090d49d
 
         }
     }
+
 });
 
 
@@ -97,3 +120,7 @@ database.ref('/food').on("value", function (snapshot) {
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 61cc47ca1178162ebcaa82d93ba8911c0090d49d

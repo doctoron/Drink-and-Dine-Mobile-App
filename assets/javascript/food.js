@@ -14,7 +14,10 @@ if (!firebase.apps.length) {
 
 var database = firebase.database();
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 61cc47ca1178162ebcaa82d93ba8911c0090d49d
 $(document).ready(function () {
 
     $('#recipe-submit-button').on('click', function () {
@@ -42,7 +45,11 @@ $(document).ready(function () {
     
               //  console.log(response.hits[i])
             
+<<<<<<< HEAD
+                let hits = response.hits[i].recipe;
+=======
                 let hits = response.hits[i].recipe ;
+>>>>>>> 61cc47ca1178162ebcaa82d93ba8911c0090d49d
                 createRecipeRow(hits.label, hits.image, hits.ingredientLines, hits.url)
 
             }
@@ -55,7 +62,11 @@ $(document).ready(function () {
     createRecipeRow = (name, image, ingredients, url ) => {
 
         console.log(name, image, ingredients, url);
+<<<<<<< HEAD
+
+=======
         
+>>>>>>> 61cc47ca1178162ebcaa82d93ba8911c0090d49d
         let recipeDiv = $('<div>');
         let recipeImage = $('<img>');
         let a = $('<a>');
@@ -88,6 +99,11 @@ $(document).ready(function () {
             $(ingredientLinesdiv).append(ingredients[i])
 
             $(recipeDiv).append(ingredientLinesdiv)
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 61cc47ca1178162ebcaa82d93ba8911c0090d49d
 
         }
     }
@@ -104,4 +120,7 @@ database.ref('/food').on("value", function (snapshot) {
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
+<<<<<<< HEAD
+=======
 
+>>>>>>> 61cc47ca1178162ebcaa82d93ba8911c0090d49d

@@ -3,6 +3,7 @@ $(document).ready(function () {
     let toggle = true;
 
     $('#recipe-div').hide();
+    $('#drink-div').hide();
 
     $('#switch').on('click', function () {
 

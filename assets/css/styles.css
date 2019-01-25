@@ -24,11 +24,11 @@ body {
 }
 
 #recipe-div {
-    background-color: rgb(190, 54, 77);
+    background-color: red;
     border: solid;
 }
 
 #drink-div {
-    background-color: black;
+    background-color: green;
     border: solid;
 }

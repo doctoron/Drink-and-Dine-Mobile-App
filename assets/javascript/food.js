@@ -55,28 +55,35 @@ $(document).ready(function () {
     createRecipeRow = (name, image, ingredients, url ) => {
 
         console.log(name, image, ingredients, url);
-
+        
         let recipeDiv = $('<div>');
         let recipeImage = $('<img>');
         let a = $('<a>');
         
+
         let p = $('<p>');
         $(p).append(a);
 
+        $(a).attr('id', 'link');
+        $(recipeDiv).attr('id', 'titleDivFood');
+
         $(recipeImage).attr('src', image);
         $(a).text('Press here for instructions');
-        $(a).attr("href", url)
+        $(a).attr("href", url);
 
         $(recipeDiv).append(name);
         $(recipeDiv).append(p);
 
+
         $(recipeDiv).append(recipeImage);
 
-        $("#food-row").append(recipeDiv)
+        $("#food-row").append(recipeDiv);
 
         for (let i = 0; i < ingredients.length; i++) {
 
             let ingredientLinesdiv = $('<div>');
+
+            $(ingredientLinesdiv).attr('id', 'instructions');
 
             $(ingredientLinesdiv).append(ingredients[i])
 
@@ -84,6 +91,7 @@ $(document).ready(function () {
 
         }
     }
+
 });
 
 

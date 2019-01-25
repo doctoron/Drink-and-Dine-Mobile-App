@@ -38,12 +38,10 @@ $(document).ready(function () {
 
         let recipeDiv = $('<div>');
         let recipeImage = $('<img>');
-        let titleDiv = $('<div>');
 
         $(recipeImage).attr('src', image);
 
         $(recipeDiv).append(name);
-        $(titleDiv).append(name);
         $(recipeDiv).append(recipeImage);
 
         $("#food-row").append(recipeDiv);

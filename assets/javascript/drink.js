@@ -47,16 +47,20 @@ $(document).ready(function () {
         let drinkDiv = $('<div>');
         let thumb = $('<img>');
         let button = $('<button>');
+        let titleDiv = $('<div>');
 
+        $(titleDiv).append(name);
         $(drinkDiv).attr('id', id);
 
         $(thumb).attr('src', image);
         $(button).attr('id', 'details');
         $(button).attr('name', name);
+        $(titleDiv).attr('id', 'titleDiv');
 
         $(drinkDiv).append(thumb);
-        $(drinkDiv).append(name);
+        $(drinkDiv).append(titleDiv);
         $(drinkDiv).append(button);
+        
 
         $('#drink-row').append(drinkDiv);
 
@@ -66,10 +70,15 @@ $(document).ready(function () {
 
         let detailName = $(this).attr('name');
         let newDiv = $('<div>');
+
+        // Prevent reloading the div
+        $(this).empty();
+
         $(this).append(newDiv)
         console.log('The name of this ' + 'drink is: ' + detailName);
 
         let detailDiv = $('<div>');
+
         $(this).append(detailDiv);
 
         //Search by cocktail drink name
@@ -94,18 +103,25 @@ $(document).ready(function () {
                 console.log(strIngredients);
                 console.log(arrIngredients);
 
+                let ul = $('<ul>');
+                $(newDiv).append(ul);
+
                 for (let i = 1; i < 16; i++) {
                     let strIng = strIngredients + i;
+                    let strMeas = strMeasure + i;
+
+                    console.log(eval(strMeas));
                     console.log(eval(strIng));
 
-                    let strMeas = strMeasure + i;
-                    console.log(eval(strMeas));
-
-                    arrIngredients.push(strIng);
-                    arrMeasures.push(strMeas);
-
-                    $(newDiv).append(eval(strIng));
-                    $(newDiv).append(eval(strMeas));
+                    if (!eval(strIng) == "" || !eval(strMeas) == ' ' || !eval(strMeas) == '') {
+                        let li = $('<li>');
+                        
+                        arrIngredients.push(strIng);
+                        arrMeasures.push(strMeas);
+                        $(ul).append(li);
+                        $(li).append(eval(strIng)+" ");
+                        $(li).append(eval(strMeas));
+                    }
                 }
                 // let arrMeasures = [];
                 // getMeasures = () => {
@@ -132,11 +148,8 @@ database.ref('/drink').on("value", function (snapshot) {
 
 
 /*        let detailsDiv = $('<div>');
-
         $(detailsDiv).attr(this);
-
         $(detailsDiv).append(this);
-
         $('#details-div').append(detailsDiv);*/
 
 //------------------------------------------------------------------------
@@ -152,4 +165,3 @@ database.ref('/drink').on("value", function (snapshot) {
 // var drinkNA;
 // let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`
 //------------------------------------------------------------------------
-

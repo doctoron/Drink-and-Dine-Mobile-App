@@ -1,42 +1,16 @@
-# project1
+# Project-1
+
 UCF Coding Bootcamp Project #1
 
-
-
-Assignment to groups for projects today.  
-
-Goal: Build Something Awesome ...
-• The Idea Machine: http://www.ideamachine.io/#view-ideas-top 
-• Ideas Watch: https://www.ideaswatch.com/startup-ideas/app
-• Web Based Project Ideas & Topics: http://nevonprojects.com/web-based-project-ideas-topics/
-
-First, how do we build a git repo that branches to all the members in the group?
-Done
+The overall application’s concept is to have user start by entering ingredients you already have on hand such as meat, seasoning and dairy). As you add available ingredients, our website suggests recipes, updating results for each new item you include. Same thing for the drinks section.
+The motivation for its development to help you waste less food and eat fantastic meals and drinks. Trying to keep it simple and effective.
+Your design process uses the Bootstrap styling with the background to appease the user to show a tabled familar background ; such as a kitchen table. Also a Button allows user to switch between drinks and food depending on what user preference is. 
 
 Requirements:
-☐ Must uses at least two APIs
-1. TBD: https://developers.zomato.com/documentation#!/common/collections
-2. TBD: https://developer.edamam.com/edamam-recipe-api
-☐ Must use AJAX to pull data:
-i.e.
-$.ajax( {
-url: queryURL,
-method: “GET”  } )
-.done(function(response) {
-for (var i = 0; i < response.data.length; i++) {
-var aDiv = $(“ <div> ”;
-var pTag = $(“ <p></p> ”);
-var anImage = $('');
-anImage.attr("src",response.data[i].images.fixed_height.url);
-aFoodDiv.append(pTag);
-aFoodDiv.append(anImage);
-$("#gifs-appear-here").append(aFoodDiv);
-
-☐ Must utilize at least one new library or technology that we haven’t discussed: 
-	A collective list of APISs, Go Build something...(Awesome)
-	https://apilist.fun/
-	Traitify - Capture Employee Personalities  https://app.traitify.com/developer
-	
+☐ The two APIs
+1. https://developers.zomato.com/documentation#!/common/collections
+2. https://developer.edamam.com/edamam-recipe-api
+☐ AJAX to pull data:
 ☐ Must have a polished frontend / UI
 	https://www.w3schools.com/bootstrap/bootstrap_templates.asp
 
@@ -46,22 +20,20 @@ $("#gifs-appear-here").append(aFoodDiv);
 
 ☐ Must have some sort of repeating element (table, columns, etc)
 
-☐ Must use Bootstrap or Alternative CSS Framework
+☐ Used Bootstrap or Alternative CSS Framework
 
-☐ Must be Deployed (GitHub Pages or Firebase)
+☐ Deployed (GitHub Pages or Firebase)
 
-☐ Must have User Input Validation
+☐ User Input Validation
 
 ☐ Presentation Date:  January 29, 2019
 	(possibly earlier TBD)
 	Two Weeks from Today 
 
-Nice to have:
-☐ Utilize firebase for Persistent Data Storage (consider this basically a requirement).
-
+☐ Firebase for Persistent Data Storage.
 ☐ Mobile Responsivness
-
 ☐ Use an alternative CSS framework
+
 
 #UCF #Bootcamp #group #project1 #Bootstrap #API #CSS #ajax  #Muktiar.Luna.Christian.Ronald
 ## Project & Features

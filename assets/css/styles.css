@@ -55,6 +55,7 @@ li {
 }
 
 #drink-div {
+    align-content: center;
     text-align: center;
     background-color: #295738;
     border: solid;
@@ -78,6 +79,9 @@ div {
 
 #titleDiv {
     font-size: 30px;
+    margin-top:10px;
+    text-align: center;
+    align-content: center;
     font-family: 'Satisfy', cursive;
 }
 
@@ -117,6 +121,7 @@ div {
     border-color: #3f8556;
     margin-top: 10px;
 }
+
 
 #instructions-drink {
     border-style: dashed;

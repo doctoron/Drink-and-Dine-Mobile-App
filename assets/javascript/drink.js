@@ -35,7 +35,11 @@ $(document).ready(function () {
         $(thumb).attr('src', image);
         $(button).attr('id', 'details');
         $(button).attr('name', name);
+
+ 
+     
         $(titleDiv).attr('id', 'titleDiv');
+        
 
         $(drinkDiv).append(thumb);
         $(drinkDiv).append(titleDiv);
@@ -53,7 +57,6 @@ $(document).ready(function () {
 
         // Prevent reloading the div
         $(this).empty();
-
         $(this).append(newDiv)
         console.log('The name of this ' + 'drink is: ' + detailName);
 

@@ -1,3 +1,4 @@
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyCBsImEhzdS6ukUkH6UaPtcQdMh6aEpfn4",
@@ -13,6 +14,7 @@ if (!firebase.apps.length) {
 }
 
 var database = firebase.database();
+
 
 $(document).ready(function () {
 
@@ -38,11 +40,11 @@ $(document).ready(function () {
         }).then(function (response) {
 
             for (let i = 0; i < response.hits.length; i++) {
-
-                //  console.log(response.hits[i])
-
-                let hits = response.hits[i].recipe;
-                createRecipeRow(hits.label, hits.image, hits.ingredientLines)
+    
+              //  console.log(response.hits[i])
+            
+                let hits = response.hits[i].recipe ;
+                createRecipeRow(hits.label, hits.image, hits.ingredientLines, hits.url)
 
             }
 
@@ -81,8 +83,6 @@ $(document).ready(function () {
 
             $(recipeDiv).append(ingredientLinesdiv)
 
-
-
         }
     }
 });
@@ -97,3 +97,4 @@ database.ref('/food').on("value", function (snapshot) {
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
+

@@ -1,3 +1,4 @@
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyCBsImEhzdS6ukUkH6UaPtcQdMh6aEpfn4",
@@ -13,6 +14,7 @@ if (!firebase.apps.length) {
 }
 
 var database = firebase.database();
+
 
 $(document).ready(function () {
 

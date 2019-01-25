@@ -27,19 +27,20 @@ $(document).ready(function () {
         let drinkDiv = $('<div>');
         let thumb = $('<img>');
         let button = $('<button>');
-        let titleDiv = $('<div');
-        $(titleDiv).append(name);
+        let titleDiv = $('<div>');
 
+        $(titleDiv).append(name);
         $(drinkDiv).attr('id', id);
 
         $(thumb).attr('src', image);
         $(button).attr('id', 'details');
         $(button).attr('name', name);
-        $(titleDiv).attr('id, titleDiv')
+        $(titleDiv).attr('id', 'titleDiv');
 
         $(drinkDiv).append(thumb);
         $(drinkDiv).append(titleDiv);
         $(drinkDiv).append(button);
+        
 
         $('#drink-row').append(drinkDiv);
 

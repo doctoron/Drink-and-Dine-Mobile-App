@@ -34,6 +34,14 @@ img {
 }
 
 #drink-div {
-    background-color: green;
+    background-color: rgb(118, 165, 118);
     border: solid;
+}
+
+#titleDiv {
+    font-size: 30px;
+    font-family: 'Satisfy', cursive;
+}
+
+#details {
 }

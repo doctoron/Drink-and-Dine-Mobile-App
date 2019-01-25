@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     $('#recipe-submit-button').on('click', function () {
 
-        $('#recipe-row').empty();
+        $('#food-row').empty();
 
         let userInput = $('#recipe-input').val().trim();
         // API key and ID

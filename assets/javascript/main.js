@@ -6,6 +6,8 @@ $(document).ready(function () {
 
     $('#switch').on('click', function () {
 
+        console.log('triggered')
+
         if (toggle) {
             $('#recipe-div').show();
             $('#drink-div').hide();

@@ -3,6 +3,8 @@ $(document).ready(function () {
 
     $('#recipe-submit-button').on('click', function () {
 
+        $('#recipe-row').empty();
+
         let userInput = $('#recipe-input').val().trim();
         // API key and ID
         let YOUR_APP_ID = '13d7fa80';

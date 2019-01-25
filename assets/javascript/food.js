@@ -22,7 +22,7 @@ $(document).ready(function () {
               //  console.log(response.hits[i])
             
                 let hits = response.hits[i].recipe ;
-                createRecipeRow(hits.label, hits.image, hits.ingredientLines)
+                createRecipeRow(hits.label, hits.image, hits.ingredientLines, hits.url)
 
             }
 
@@ -31,17 +31,25 @@ $(document).ready(function () {
 
     //how to set dynamic image source jquery
 
-    createRecipeRow = (name, image, ingredients) => {
+    createRecipeRow = (name, image, ingredients, url ) => {
 
-        console.log(name, image, ingredients)
+        console.log(name, image, ingredients, url)
 
         
 
         let recipeDiv = $('<div>');
         let recipeImage = $('<img>');
+        let a = $('<a>');
+        
+        let p = $('<p>')
+        $(p).append(a);
+
         $(recipeImage).attr('src', image)
+        $(a).text('Press here for instructions');
+        $(a).attr("href", url)
 
         $(recipeDiv).append(name)
+        $(recipeDiv).append(p)
 
 
         $(recipeDiv).append(recipeImage)

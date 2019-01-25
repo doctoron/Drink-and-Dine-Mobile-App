@@ -1,6 +1,7 @@
 body {
     background-image: url("https://www2.gtel.net/wp-content/uploads/2017/05/Wood-Background.jpg"); background-size: 100%; 
 }
+
 .green {
     width:300px;
     height:300px;
@@ -9,6 +10,7 @@ body {
     position: absolute;
     z-index: 9;
 }
+
 .header {
     background: #00000080;
     /* height: 200px; */
@@ -23,36 +25,46 @@ body {
     font-family: 'Lobster', cursive;
     overflow: hidden;
 } 
+
 img {
     width: 300px;
     height: 300px;
     border-radius: 150px;
     align-content: center;
     text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border: solid white;
 }
+
 .inforow {
     display: flex;
     flex-direction: column;
     border: solid;
 }
+
 #recipe-div {
-    background-color:rosybrown;
+    background-color:#3088ac;
     text-align: center;
     align-content: center;
     border: solid;
 }
+
 li {
     list-style-type: none;
 }
+
 #drink-div {
     text-align: center;
-    background-color: #04a004;
+    background-color: #295738;
     border: solid;
     color: white;
 }
+
 div {
     text-align: left;
 }
+
     #drink-input {
     color: #006400;
 }
@@ -60,6 +72,8 @@ div {
 #details {
     color: #022c02;
     text-align: left;
+    padding: 10px;
+    
 } 
 
 #titleDiv {
@@ -77,22 +91,45 @@ div {
     height: 30px;
     width: 100px;
 }
+
 .help-button {
     position: absolute;
     top: 0;
     left: 0;
 }
+
 #titleDivFood {
+    align-content: center;
+    text-align: center;
     padding-top:20px;
     font-family: 'Satisfy', cursive;
     font-size: 28px;
 }
+
 #link {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
+    color: rgb(0, 255, 213);
 }
+
+#line {
+    border-style: dashed;
+    border-color: #3f8556;
+    margin-top: 10px;
+}
+
+#instructions-drink {
+    border-style: dashed;
+    border-color: #295738;
+    padding:20px;
+}
+
 #instructions  {
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
     font-size: 18px;
+  }
+
+  #infoDiv {
+      background-color: grey;
   }

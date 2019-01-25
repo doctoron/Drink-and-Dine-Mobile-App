@@ -6,42 +6,34 @@ $(document).ready(function () {
     $('#recipe-div').hide();
     $('#drink-div').hide();
 
-    $('#switch-drink').on('click', function () {
+    $('#switch-drink').on('change', function () {
 
-        console.log('triggered')
+        console.log('DRINK PRESSED')
 
         if (toggleDrink) {
             $('#drink-div').show();
-
-            $('#switch-drink').prop('checked', true).change()
 
             toggleDrink = !toggleDrink;
 
         } else if (!toggleDrink) {
             $('#drink-div').hide();
 
-            $('#switch-drink').prop('checked', false).change();
-
             toggleDrink = !toggleDrink;
         }
 
     });
 
-    $('#switch-food').on('click', function () {
+    $('#switch-food').on('change', function () {
 
-        console.log('triggered')
+        console.log('FOOD PRESSED')
 
         if (toggleFood) {
             $('#recipe-div').show();
-
-            $('#switch-food').prop('checked', true).change()
 
             toggleFood = !toggleFood;
 
         } else if (!toggleFood) {
             $('#recipe-div').hide();
-
-            $('#switch-food').prop('checked', false).change();
 
             toggleFood = !toggleFood;
         }

@@ -6,6 +6,8 @@ body {
     height:300px;
     background-color: #04a004;
     border-radius: 400px;
+    position: absolute;
+    z-index: 9;
 }
 .header {
     background: #00000080;

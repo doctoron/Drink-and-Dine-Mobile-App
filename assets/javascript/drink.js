@@ -136,11 +136,6 @@ $(document).ready(function () {
 
     database.ref('/drink').on("value", function (snapshot) {
 
-<<<<<<< HEAD
-}, function (errorObject) {
-    console.log("Errors handled: " + errorObject.code);
-});
-=======
         var sv = snapshot.val();
     
         $('#drink-last-search').text(sv.lastSearch);
@@ -150,7 +145,6 @@ $(document).ready(function () {
     });
     
 })
->>>>>>> 61cc47ca1178162ebcaa82d93ba8911c0090d49d
 
 
 /*        let detailsDiv = $('<div>');

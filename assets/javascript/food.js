@@ -14,7 +14,6 @@ if (!firebase.apps.length) {
 
 var database = firebase.database();
 
-
 $(document).ready(function () {
 
     $('#recipe-submit-button').on('click', function () {
@@ -42,7 +41,7 @@ $(document).ready(function () {
     
               //  console.log(response.hits[i])
             
-                let hits = response.hits[i].recipe ;
+                let hits = response.hits[i].recipe;
                 createRecipeRow(hits.label, hits.image, hits.ingredientLines, hits.url)
 
             }
@@ -55,7 +54,6 @@ $(document).ready(function () {
     createRecipeRow = (name, image, ingredients, url ) => {
 
         console.log(name, image, ingredients, url);
-        
         let recipeDiv = $('<div>');
         let recipeImage = $('<img>');
         let a = $('<a>');
@@ -70,6 +68,7 @@ $(document).ready(function () {
         $(recipeImage).attr('src', image);
         $(a).text('Press here for instructions');
         $(a).attr("href", url);
+        $(a).attr('target', '_blank')
 
         $(recipeDiv).append(name);
         $(recipeDiv).append(p);
@@ -89,6 +88,8 @@ $(document).ready(function () {
 
             $(recipeDiv).append(ingredientLinesdiv)
 
+
+
         }
     }
 
@@ -104,4 +105,3 @@ database.ref('/food').on("value", function (snapshot) {
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
-

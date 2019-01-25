@@ -3,45 +3,37 @@ $(document).ready(function () {
     let toggleDrink = true;
     let toggleFood = true;
 
-    $('#recipe-div').hide();
-    $('#drink-div').hide();
+    $('#recipe-div').show();
+    $('#drink-div').show();
 
-    $('#switch-drink').on('click', function () {
+    $('#switch-drink').on('change', function () {
 
-        console.log('triggered')
+        console.log('DRINK PRESSED')
 
         if (toggleDrink) {
-            $('#drink-div').show();
-
-            $('#switch-drink').prop('checked', true).change()
+            $('#drink-div').hide();
 
             toggleDrink = !toggleDrink;
 
         } else if (!toggleDrink) {
-            $('#drink-div').hide();
-
-            $('#switch-drink').prop('checked', false).change();
+            $('#drink-div').show();
 
             toggleDrink = !toggleDrink;
         }
 
     });
 
-    $('#switch-food').on('click', function () {
+    $('#switch-food').on('change', function () {
 
-        console.log('triggered')
+        console.log('FOOD PRESSED')
 
         if (toggleFood) {
-            $('#recipe-div').show();
-
-            $('#switch-food').prop('checked', true).change()
+            $('#recipe-div').hide();
 
             toggleFood = !toggleFood;
 
         } else if (!toggleFood) {
-            $('#recipe-div').hide();
-
-            $('#switch-food').prop('checked', false).change();
+            $('#recipe-div').show();
 
             toggleFood = !toggleFood;
         }

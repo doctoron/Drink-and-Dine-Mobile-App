@@ -1,12 +1,30 @@
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyCBsImEhzdS6ukUkH6UaPtcQdMh6aEpfn4",
+    authDomain: "drink-n-dine.firebaseapp.com",
+    databaseURL: "https://drink-n-dine.firebaseio.com",
+    projectId: "drink-n-dine",
+    storageBucket: "drink-n-dine.appspot.com",
+    messagingSenderId: "339528818297"
+};
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(config);
+}
+
+var database = firebase.database();
+
 $(document).ready(function () {
-
-
 
     $('#drink-submit-button').on('click', function () {
 
         $('#drink-row').empty();
 
         let userInput = $('#drink-input').val().trim();
+
+        database.ref('/drink').set({
+            lastSearch: userInput,
+        });
 
         //     // Cocktail API with no ID/key required assignment with E6 template string for query
         //     // Search API by ingredient for cocktail drinks
@@ -114,6 +132,17 @@ $(document).ready(function () {
             }
         })
     }
+
+    database.ref('/drink').on("value", function (snapshot) {
+
+        var sv = snapshot.val();
+    
+        $('#drink-last-search').text(sv.lastSearch);
+    
+    }, function (errorObject) {
+        console.log("Errors handled: " + errorObject.code);
+    });
+    
 })
 
 

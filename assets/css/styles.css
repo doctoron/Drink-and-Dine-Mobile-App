@@ -27,6 +27,8 @@ img {
     border-radius: 150px;
     align-content: center;
     text-align: center;
+    padding-bottom: 20px;
+    border: solid white;
 }
 .inforow {
     display: flex;
@@ -55,6 +57,7 @@ li {
 #details {
     color: #022c02;
     text-align: left;
+    padding: 20px;
 } 
 
 #titleDiv {

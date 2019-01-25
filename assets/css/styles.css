@@ -1,8 +1,6 @@
 body {
-    background-image: url("https://www2.gtel.net/wp-content/uploads/2017/05/Wood-Background.jpg"); background-size: 100%;
-    
+    background-image: url("https://www2.gtel.net/wp-content/uploads/2017/05/Wood-Background.jpg"); background-size: 100%; 
 }
-
 .header {
     background: #00000080;
     /* height: 200px; */
@@ -19,39 +17,39 @@ body {
 img {
     width: 300px;
 }
-
 img {
     width: 300px;
     height: 300px;
 }
-
 .inforow {
     display: flex;
     flex-direction: column;
     border: solid;
 }
-
 #recipe-div {
     background-color:rosybrown;
     border: solid;
 }
 li {
-    list-style: none;
+    list-style-type: none;
 }
 #drink-div {
-    background-color: rgb(118, 165, 118);
+    text-align: center;
+    background-color: #04a004;
     border: solid;
     color: #f5f5f5;
+}
+    #drink-input {
+    color: #006400;
+}
+#id01 {
+    text-align: center;
 }   
 #details {
     color: #022c02;
-    justify-content: left;
-}
-
+    text-align: left;
+}   
 #titleDiv {
     font-size: 30px;
     font-family: 'Satisfy', cursive;
-}
-
-#details {
 }

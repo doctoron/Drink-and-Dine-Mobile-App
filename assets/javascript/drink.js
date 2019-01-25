@@ -36,7 +36,7 @@ $(document).ready(function () {
             url: queryURL,
             method: 'GET'
         }).then(response => {
-            console.log(response.drinks);
+            console.log(response);
 
             // Grab name and thumbnail image of drinks from response
             for (let i = 0; i < response.drinks.length; i++) {
@@ -57,7 +57,11 @@ $(document).ready(function () {
         $(thumb).attr('src', image);
         $(button).attr('id', 'details');
         $(button).attr('name', name);
+
+ 
+     
         $(titleDiv).attr('id', 'titleDiv');
+        
 
         $(drinkDiv).append(thumb);
         $(drinkDiv).append(titleDiv);
@@ -69,13 +73,11 @@ $(document).ready(function () {
     }
 
     $(document).on('click', '#details', function () {
-
         let detailName = $(this).attr('name');
         let newDiv = $('<div>');
 
         // Prevent reloading the div
         $(this).empty();
-
         $(this).append(newDiv)
         console.log('The name of this ' + 'drink is: ' + detailName);
 
@@ -147,7 +149,6 @@ database.ref('/drink').on("value", function (snapshot) {
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
-
 
 /*        let detailsDiv = $('<div>');
         $(detailsDiv).attr(this);

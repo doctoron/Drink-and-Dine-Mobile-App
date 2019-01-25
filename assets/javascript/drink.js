@@ -17,13 +17,13 @@ $(document).ready(function () {
         }).then(response => {
             console.log(response.drinks);
 
-        // Grab name and thumbnail image of drinks from response
+            // Grab name and thumbnail image of drinks from response
             for (let i = 0; i < response.drinks.length; i++) {
                 createDrinkRow(response.drinks[i].strDrink, response.drinks[i].strDrinkThumb, i);
             }
         });
     });
-        // Prepare to display results and a button for additional details
+    // Prepare to display results and a button for additional details
     createDrinkRow = (name, image, id) => {
         let drinkDiv = $('<div>');
         let thumb = $('<img>');
@@ -47,10 +47,15 @@ $(document).ready(function () {
 
         let detailName = $(this).attr('name');
         let newDiv = $('<div>');
+
+        // Prevent reloading the div
+        $(this).empty();
+
         $(this).append(newDiv)
         console.log('The name of this ' + 'drink is: ' + detailName);
 
         let detailDiv = $('<div>');
+
         $(this).append(detailDiv);
 
         //Search by cocktail drink name
@@ -68,25 +73,32 @@ $(document).ready(function () {
                 let strIngredients = 'response.drinks[0].strIngredient';
                 let strMeasure = 'response.drinks[0].strMeasure';
 
-            // Create variables for ingredients & measurements 
+                // Create variables for ingredients & measurements 
                 let arrIngredients = [];
                 let arrMeasures = [];
 
                 console.log(strIngredients);
                 console.log(arrIngredients);
 
+                let ul = $('<ul>');
+                $(newDiv).append(ul);
+
                 for (let i = 1; i < 16; i++) {
                     let strIng = strIngredients + i;
+                    let strMeas = strMeasure + i;
+
+                    console.log(eval(strMeas));
                     console.log(eval(strIng));
 
-                    let strMeas = strMeasure + i;
-                    console.log(eval(strMeas));
-
-                    arrIngredients.push(strIng);
-                    arrMeasures.push(strMeas);
-
-                    $(newDiv).append(eval(strIng));
-                    $(newDiv).append(eval(strMeas));
+                    if (!eval(strIng) == "" || !eval(strMeas) == ' ' || !eval(strMeas) == '') {
+                        let li = $('<li>');
+                        
+                        arrIngredients.push(strIng);
+                        arrMeasures.push(strMeas);
+                        $(ul).append(li);
+                        $(li).append(eval(strIng)+" ");
+                        $(li).append(eval(strMeas));
+                    }
                 }
                 // let arrMeasures = [];
                 // getMeasures = () => {

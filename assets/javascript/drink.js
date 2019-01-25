@@ -54,6 +54,7 @@ $(document).ready(function () {
         $(titleDiv).append(name); //
         $(drinkDiv).attr('id', id);
 
+        $(infoDiv).attr('id', 'line');
         $(thumb).attr('src', image);
         $(button).attr('id', 'details');
         $(button).attr('name', name);
@@ -84,6 +85,8 @@ $(document).ready(function () {
 
         let newDiv = $('<div>');
         $(newDiv).insertAfter(pressedButton);
+
+        $(newDiv).attr('id', 'instructions-drink')
 
         //Search by cocktail drink name
         let queryURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`;

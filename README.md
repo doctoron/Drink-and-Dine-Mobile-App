@@ -65,14 +65,10 @@ Nice to have:
 
 #UCF #Bootcamp #group #project1 #Bootstrap #API #CSS #ajax  #Muktiar.Luna.Christian.Ronald
 ## Project & Features
-## SuperFood: SmartList
-1. Determine if user is going to []Eat out or []Cook
-2. Determine location by zip
-3. Perform search by cuisine []Chinese    []Italian    []Fast Food  
-   Cooking:
+## List Ingredients / Drinks
+1. Perform search by Ingredients & Drinks
    Request Ingredients: (user input)
    Search for recipies using ingredients
    Display meal choices from ajax call
-   [] 'Surpise Me' Button will bypass user input and return random recipies
-4. Eat out choice provides a list ordered by zip code distance.
+
 

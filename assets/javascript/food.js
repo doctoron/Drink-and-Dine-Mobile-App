@@ -58,7 +58,6 @@ $(document).ready(function () {
         let recipeImage = $('<img>');
         let a = $('<a>');
         
-
         let p = $('<p>');
         $(p).append(a);
 
@@ -68,13 +67,15 @@ $(document).ready(function () {
         $(recipeImage).attr('src', image);
         $(a).text('Press here for instructions');
         $(a).attr("href", url);
-        $(a).attr('target', '_blank')
+        $(a).attr('target', '_blank');
+
 
         $(recipeDiv).append(name);
         $(recipeDiv).append(p);
 
-
+        
         $(recipeDiv).append(recipeImage);
+
 
         $("#food-row").append(recipeDiv);
 
@@ -84,17 +85,18 @@ $(document).ready(function () {
 
             $(ingredientLinesdiv).attr('id', 'instructions');
 
-            $(ingredientLinesdiv).append(ingredients[i])
+            $(ingredientLinesdiv).append(ingredients[i]);
 
-            $(recipeDiv).append(ingredientLinesdiv)
-
+            $(recipeDiv).append(ingredientLinesdiv);
 
 
         }
+        let foodLine = $('<div>');
+        $(recipeDiv).append(foodLine);
+        $(foodLine).attr('id', 'foodDottedLine');
     }
 
 });
-
 
 database.ref('/food').on("value", function (snapshot) {
 

@@ -23,14 +23,14 @@
 <!-------------------------------------------------------------->
 
 <body>
-        
+
 
     <div class="container">
         <div class="row inforow d-flex justify-content-center align-items-center">
             <div class="col-md-2.5">
-                    <div class="green"></div>
+                <div class="green"></div>
                 <div class="header">
-                    <h1 id='text'>Drink    &    Dine</h1>
+                    <h1 id='text'>Drink & Dine</h1>
                 </div>
                 <div class="w3-container">
                     <button onclick="document.getElementById('id01').style.display='block'" class="w3-button-tiny w3-green help-button">
@@ -56,7 +56,7 @@
 
     <div class='row d-flex justify-content-between'>
         <div class="col-md-4">
-            <input id='switch-food' type="checkbox" checked data-toggle="toggle" data-onstyle="danger" data-width="175"
+            <input id='switch-food' type="checkbox" checked data-toggle="toggle" data-onstyle="default" data-width="175"
                 data-on="Meal Recipes">
             <div id='recipe-div'>
                 <div>Most Recent Search: <span id='food-last-search'></span></div>
@@ -69,7 +69,7 @@
         </div>
 
         <div class="col-md-4">
-            <input id='switch-drink' type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-width="175"
+            <input id='switch-drink' type="checkbox" checked data-toggle="toggle" data-onstyle="default" data-width="175"
                 data-on="Cocktail Recipes">
             <div id='drink-div' class="col">
                 <div>Most Recent Search: <span id='drink-last-search'></span></div>
@@ -77,7 +77,6 @@
                 <button type="button" class="w3-btn btn-small w3-black w3-hover-red" id='drink-submit-button'>Show
                     Drinks</button>
                 <div id='drink-row'></div>
-                <div id='INFOID'></div>
             </div>
         </div>
     </div>

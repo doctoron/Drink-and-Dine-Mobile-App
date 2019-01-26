@@ -37,11 +37,6 @@ body {
 /*-------------drink javascript---------------*/
 
 
-.inforow {
-    display: flex;
-    flex-direction: column;
-    border: solid;
-}
 
 #drink-div {
     text-align: center;

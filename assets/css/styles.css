@@ -2,14 +2,20 @@
 
 body {
     background-image: url("https://www2.gtel.net/wp-content/uploads/2017/05/Wood-Background.jpg"); background-size: 100%; 
+    
+}
+body .images {
+    border-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6a4QLcxFHYZCN1jWVdvkmxJ5f-JiUMGovt0PHcDuDyt1F6_d4");
+    border-image: url("https://ya-webdesign.com/images/alcohol-png-4.png") 30 round;
 }
 
 .green {
     width:400px;
     height:400px;
-    background-color: #04a004;
+    background-color: #295738;
     border-radius: 500px;
     top:-50px;
+    left: 37%;
     position: absolute;
     z-index: -1;
 }
@@ -24,7 +30,7 @@ body {
     border-radius: 350px;
     margin-bottom: 100px;
     position: relative;
-    color: #0f1111;
+    color: #ffffff;
     font-family: 'Lobster', cursive;
     font-size: 40px;
     
@@ -99,12 +105,19 @@ li {
     border: solid;
 }
 
+#recipe-div #food-last-search {
+    color: white;
+}
+
 #switch-food {
     height: 30px;
     width: 30px;
     color: #04a004;
 }
 
+#food-last-search {
+    color: white;
+}
 
 #titleDivFood {
     align-content: center;
@@ -126,7 +139,7 @@ li {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     margin-left: 10px;
-    color:black;
+    color:white;
   }
 
   #foodDottedLine {
@@ -158,4 +171,9 @@ div {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.images {
+    border-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6a4QLcxFHYZCN1jWVdvkmxJ5f-JiUMGovt0PHcDuDyt1F6_d4");
+    border-image: url("https://ya-webdesign.com/images/alcohol-png-4.png") 30 round;
 }

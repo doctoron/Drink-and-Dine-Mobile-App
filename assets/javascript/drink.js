@@ -49,9 +49,9 @@ $(document).ready(function () {
         let infoDiv = $('<div>')
         let thumb = $('<img>');
         let button = $('<button>');
-        let titleDiv = $('<div>'); //
+        let titleDiv = $('<div>'); 
 
-        $(titleDiv).append(name); //
+        $(titleDiv).append(name); 
         $(drinkDiv).attr('id', id);
 
         $(infoDiv).attr('id', 'line');
@@ -63,9 +63,9 @@ $(document).ready(function () {
         $(button).attr('name', name);
         $(button).attr('toggled', true);
 
-        $(titleDiv).attr('id', 'titleDiv'); //
+        $(titleDiv).attr('id', 'titleDiv'); 
 
-        $(drinkDiv).append(titleDiv); //
+        $(drinkDiv).append(titleDiv); 
         $(drinkDiv).append(thumb);
         $(drinkDiv).append(button);
         $(drinkDiv).append(infoDiv);
@@ -81,13 +81,6 @@ $(document).ready(function () {
 
         $(this).hide();
 
-        var infoClickDiv = document.getElementById("<INFOID>");
-                var content = document.createTextNode("<INFO>");
-                infoClickDiv.appendChild(content);
-                var infoClickDiv = document.getElementById("<INFOID>");
-                infoClickDiv.innerHTML += "<INFO>";
-
-                $(infoClickDiv).append(INFOID);
 
     })
 

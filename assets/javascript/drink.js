@@ -56,7 +56,10 @@ $(document).ready(function () {
 
         $(infoDiv).attr('id', 'line');
         $(thumb).attr('src', image);
+        $(button).text('Show Details');
+        $(button).addClass('w3-btn btn-tiny w3-black w3-hover-red'); //w3-css library styling
         $(button).attr('id', 'details');
+
         $(button).attr('name', name);
         $(button).attr('toggled', true);
      

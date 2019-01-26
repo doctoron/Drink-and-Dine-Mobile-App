@@ -1,58 +1,42 @@
+/*--------------html----------------*/
+
 body {
     background-image: url("https://www2.gtel.net/wp-content/uploads/2017/05/Wood-Background.jpg"); background-size: 100%; 
 }
 
 .green {
-    width:300px;
-    height:300px;
+    width:400px;
+    height:400px;
     background-color: #04a004;
-    border-radius: 400px;
+    border-radius: 500px;
+    top:-50px;
     position: absolute;
-    z-index: 9;
+    z-index: -1;
 }
 
 .header {
-    background: #00000080;
+    background: #00000050;
     /* height: 200px; */
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     align-content: center;
     text-align: center;
-    border-radius: 300px;
-    padding-top: 50px;
+    border-radius: 350px;
+    margin-bottom: 100px;
     position: relative;
-    color: #aaafaa;
+    color: #0f1111;
     font-family: 'Lobster', cursive;
-    overflow: hidden;
+    font-size: 40px;
+    
 } 
 
-img {
-    width: 300px;
-    height: 300px;
-    border-radius: 150px;
-    align-content: center;
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    border: solid white;
+.header h1 {
+    font-size: 75px;
 }
 
-.inforow {
-    display: flex;
-    flex-direction: column;
-    border: solid;
-}
+/*-------------drink javascript---------------*/
 
-#recipe-div {
-    background-color:#3088ac;
-    text-align: center;
-    align-content: center;
-    border: solid;
-}
 
-li {
-    list-style-type: none;
-}
 
 #drink-div {
     text-align: center;
@@ -61,30 +45,8 @@ li {
     color: white;
 }
 
-div {
-    text-align: left;
-}
-
-    #drink-input {
-    color: #006400;
-}
- 
-#details {
-    color: #022c02;
-    text-align: left;
-    padding: 10px;
-    
-} 
-
-#titleDiv {
-    font-size: 30px;
-    font-family: 'Satisfy', cursive;
-}
-
-#switch-food {
-    height: 30px;
-    width: 30px;
-    color: #04a004;
+#infoDiv {
+    background-color: grey;
 }
 
 #switch-drink {
@@ -92,24 +54,28 @@ div {
     width: 100px;
 }
 
-.help-button {
-    position: absolute;
+#drink-input {
+    color: #006400;
+}
+
+#details {
+    top:10px;
+    padding: 8px;
     top: 0;
-    left: 0;
-}
+    right: 0;
 
-#titleDivFood {
-    align-content: center;
+} 
+
+#titleDiv {
     text-align: center;
-    padding-top:20px;
+    align-content: center;
+    font-size: 30px;
     font-family: 'Satisfy', cursive;
-    font-size: 28px;
+    margin-top:20px;
 }
 
-#link {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    color: rgb(0, 255, 213);
+li {
+    list-style-type: none;
 }
 
 #line {
@@ -124,12 +90,72 @@ div {
     padding:20px;
 }
 
+ /*------------food javascript--------------*/
+
+#recipe-div {
+    background-color:#3088ac;
+    text-align: center;
+    align-content: center;
+    border: solid;
+}
+
+#switch-food {
+    height: 30px;
+    width: 30px;
+    color: #04a004;
+}
+
+
+#titleDivFood {
+    align-content: center;
+    text-align: center;
+    padding-top:20px;
+    font-family: 'Satisfy', cursive;
+    font-size: 30px;
+    color: white;
+}
+
+#link {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: rgb(0, 255, 213);
+}
+
+
 #instructions  {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: white;
-    font-size: 18px;
+    font-size: 15px;
+    margin-left: 10px;
+    color:black;
   }
 
-  #infoDiv {
-      background-color: grey;
+  #foodDottedLine {
+    border-style: dashed;
+    border-color: #166879;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
+
+  /*----------all----------*/
+  
+img {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    align-content: center;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border: solid white;
+}
+
+div {
+    text-align: left;
+}
+
+.help-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

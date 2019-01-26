@@ -62,9 +62,9 @@ $(document).ready(function () {
 
         $(button).attr('name', name);
         $(button).attr('toggled', true);
-     
+
         $(titleDiv).attr('id', 'titleDiv'); //
-        
+
         $(drinkDiv).append(titleDiv); //
         $(drinkDiv).append(thumb);
         $(drinkDiv).append(button);
@@ -80,6 +80,14 @@ $(document).ready(function () {
         createInfo(detailName, this);
 
         $(this).hide();
+
+        var infoClickDiv = document.getElementById("<INFOID>");
+                var content = document.createTextNode("<INFO>");
+                infoClickDiv.appendChild(content);
+                var infoClickDiv = document.getElementById("<INFOID>");
+                infoClickDiv.innerHTML += "<INFO>";
+
+                $(infoClickDiv).append(INFOID);
 
     })
 
@@ -99,6 +107,7 @@ $(document).ready(function () {
         }).then(response => {
 
             for (let i = 0; i < response.drinks.length; i++) {
+
 
                 $(newDiv).append(response.drinks[i].strInstructions);
 
@@ -142,13 +151,13 @@ $(document).ready(function () {
     database.ref('/drink').on("value", function (snapshot) {
 
         var sv = snapshot.val();
-    
+
         $('#drink-last-search').text(sv.lastSearch);
-    
+
     }, function (errorObject) {
         console.log("Errors handled: " + errorObject.code);
     });
-    
+
 })
 
 

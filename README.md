@@ -17,10 +17,10 @@ calorie count and other nutritional information.
 Challenges faced by the development team were overcome by the use of jquery and ajax calls to edamam.com for 
 food; similarly, the drinks utilized thecocktaildb.com. While the query of edemam.com (food) followed 
 the rules for manipulating arrays within the object, thecocktaildb.com object contained an array with objects 
-with objects that used repeating name groups. Blank, non-valided, entries contained in the object became a 
+with objects that used repeating name groups. Blank, non-validated, entries contained in the object became a 
 unique challenge and many hours were put into solving the dilemma.  In the end, the eval() function allowed 
-the conversion of strings back into javascript and provided the best method to capture ingredient and quantity 
-details within the code.  
+the conversion of strings back into javascript.  This provided the best method to capture ingredient and 
+quantity data within the code.  
 
 Frontend development utilized Bootstrap, with additional libraries from the W3.CSS reference library
 for style.  This gave the final produce the mobile-ready, finished look that we were seeking.
